@@ -38,3 +38,14 @@ export async function getPosts() {
     })
   );
 }
+
+export async function getPost(slug: string) {
+  let filepath = path.join(postsPath, slug + ".md");
+  let file = await fs.readFile(filepath);
+  let { attributes } = parseFrontMatter(file.toString());
+  invariant(
+    isValidPostAttributes(attributes),
+    `Post ${filepath} is missing attributes`
+  );
+  return { slug, title: attributes.title };
+}
