@@ -92,6 +92,9 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
                 <Link to="/">Home</Link>
               </li>
               <li>
+                <Link to="posts">Posts</Link>
+              </li>
+              <li>
                 <a href="https://remix.run/docs">Remix Docs</a>
               </li>
               <li>
@@ -113,6 +116,7 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
   );
 }
 
+// export CatchBoundary をすることで、エラーバウンダリーを作成できる
 export function CatchBoundary() {
   let caught = useCatch();
 
