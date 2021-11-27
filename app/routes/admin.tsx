@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "remix";
+import { Outlet, Link, useLoaderData } from "remix";
 import { getPosts } from "~/post";
 import type { Post } from "~/post";
 import adminStyles from "~/styles/admin.css";
@@ -28,7 +28,10 @@ export default function Admin() {
           ))}
         </ul>
       </nav>
-      <main>...</main>
+      <main>
+        {/* URL が routes/admin と一致すると Outlet 部分に routes/admin/index.tsx が読み込まれる */}
+        <Outlet />
+      </main>
     </div>
   );
 }
